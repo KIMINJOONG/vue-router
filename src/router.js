@@ -8,6 +8,10 @@ const About = () => {
   return import("./views/About.vue");
 };
 
+const Users = () => {
+  return import("./views/Users.vue");
+};
+
 export default new Router({
   mode: "history",
   base: process.env.BASE_URL,
@@ -21,6 +25,11 @@ export default new Router({
       path: "/about",
       name: "about",
       component: About
+    },
+    {
+      path: "/users/:id",
+      name: "users",
+      component: Users
     }
   ]
 });

@@ -37,6 +37,10 @@ export default new Router({
     {
       path: "/users",
       name: "users",
+      //beforeEnter: (to,from, next)=> {
+      //  console.log("beforeEnter");
+      //  next();
+      //},
       component: Users,
       children: [
         {
@@ -50,6 +54,14 @@ export default new Router({
           component: UsersEdit
         }
       ]
+    },
+    {
+      path: "/redirect-me",
+      redirect: { name: "home" }
+    },
+    {
+      path: "/*", // 위에 선언된 모든 path들과 일치하는게 없을때
+      redirect: { name: "home" }
     }
   ]
 });

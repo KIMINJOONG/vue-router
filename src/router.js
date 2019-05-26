@@ -12,6 +12,14 @@ const Users = () => {
   return import("./views/Users.vue");
 };
 
+const UsersDetail = () => {
+  return import("./views/UsersDetail.vue");
+};
+
+const UsersEdit = () => {
+  return import("./views/UsersEdit.vue");
+};
+
 export default new Router({
   mode: "history",
   base: process.env.BASE_URL,
@@ -27,9 +35,21 @@ export default new Router({
       component: About
     },
     {
-      path: "/users/:id",
+      path: "/users",
       name: "users",
-      component: Users
+      component: Users,
+      children: [
+        {
+          path: ":id",
+          name: "users-detail",
+          component: UsersDetail
+        },
+        {
+          path: ":id/edit",
+          name: "users-edit",
+          component: UsersEdit
+        }
+      ]
     }
   ]
 });

@@ -18,11 +18,7 @@
             <v-list-tile-title>About</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
-        <v-list-tile
-          router
-          :to="{name:'users', params: {id: 4321, name: 'hoza'}, query: {group: 'member', category: 'trial'}}"
-          exact
-        >
+        <v-list-tile router :to="{name:'users'}" exact>
           <v-list-tile-action>
             <i class="fas fa-user"></i>
           </v-list-tile-action>
